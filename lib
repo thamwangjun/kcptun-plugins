@@ -61,7 +61,7 @@ download_github_latest_release () {
     if [ ! -z $ARCHIVE ]; then
         info "Using local archive $ARCHIVE."
     else
-        local regex="href=\"(/$repo/releases/download/[v\.0-9]+/($filename))"
+        local regex="href=\"(/$repo/releases/download/[v0-9]+/($filename))"
         local escaped=$(eval "echo $repo")
         local latest=$($PROXY curl -L https://github.com/$escaped/releases/latest)
         if [[ "$latest" =~ $regex ]]; then
